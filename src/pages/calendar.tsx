@@ -6,7 +6,7 @@ import { events as eventsData } from "./eventsData"; // Ensure the path is corre
 
 interface EventItem {
   title: string;
-  time: string; // Include time as a separate field
+  time: string;
 }
 
 interface Events {
@@ -43,13 +43,8 @@ const Calendar = () => {
   );
 
   const getEventsForDay = (date: Date): EventItem[] => {
-    const formattedDate = date.toISOString().split("T")[0]; // Converts Date to YYYY-MM-DD format
-
-    // Check if formattedDate exists in events and is not undefined
-    if (typeof formattedDate === "string" && formattedDate in events) {
-      return events[formattedDate] as EventItem[]; // Type assertion to ensure the return value is of type 'EventItem[]'
-    }
-    return []; // Return empty array if no events found or if formattedDate is undefined
+    const formattedDate = date.toISOString().split("T")[0];
+    return events[formattedDate] ?? [];
   };
 
   const changeMonth = (offset: number) => {
@@ -67,38 +62,44 @@ const Calendar = () => {
       <Navbar />
 
       <main className="min-h-screen bg-gradient-to-b from-gray-800 to-black text-white">
-        <div className="container mx-auto py-10">
+        <div className="container mx-auto px-4 py-10 sm:px-6 lg:px-8">
           <div className="mb-4 flex items-center justify-between">
             <button
               onClick={() => changeMonth(-1)}
-              className="rounded bg-blue-600 px-4 py-2 font-bold text-white hover:bg-blue-500"
+              className="rounded bg-blue-600 px-4 py-2 font-bold text-white transition duration-150 hover:bg-blue-500"
             >
               Prev
             </button>
-            <h2 className="text-2xl font-bold md:text-4xl">
+            <h2 className="text-xl font-bold sm:text-2xl md:text-3xl lg:text-4xl">
               {monthNames[currentMonth]} {currentYear}
             </h2>
             <button
               onClick={() => changeMonth(1)}
-              className="rounded bg-blue-600 px-4 py-2 font-bold text-white hover:bg-blue-500"
+              className="rounded bg-blue-600 px-4 py-2 font-bold text-white transition duration-150 hover:bg-blue-500"
             >
               Next
             </button>
           </div>
-          <div className="grid grid-cols-7 gap-4 p-4 text-sm md:text-base">
+          <div className="grid grid-cols-7 gap-4 text-xs sm:text-sm md:text-base">
             {["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"].map((day) => (
               <div key={day} className="text-center font-bold">
                 {day}
               </div>
             ))}
             {Array.from({ length: firstDayOfMonth }).map((_, index) => (
-              <div key={`empty-${index}`} className="p-4" /> // Empty slots for days before the first of the month
+              <div key={`empty-${index}`} className="p-4" />
             ))}
             {days.map((date) => (
-              <div key={date.toISOString()} className="rounded-lg border p-4">
+              <div
+                key={date.toISOString()}
+                className="flex flex-col items-center rounded-lg border p-4"
+              >
                 <div className="text-center">{date.getDate()}</div>
                 {getEventsForDay(date).map((event, index) => (
-                  <div key={index} className="mt-2 text-center text-sm">
+                  <div
+                    key={index}
+                    className="mt-2 overflow-hidden text-center text-xs sm:text-sm"
+                  >
                     {`${event.title} at ${event.time}`}
                   </div>
                 ))}
