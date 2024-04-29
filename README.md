@@ -1,29 +1,30 @@
-# Create T3 App
+# Woodward Bluffs Hub
 
-This is a [T3 Stack](https://create.t3.gg/) project bootstrapped with `create-t3-app`.
+Welcome to the official GitHub repository for the Woodward Bluffs Mobile Home Park Activities Committee. This website is your go-to resource for all events, activities, and community announcements.
 
-## What's next? How do I make an app with this?
+## Features
 
-We try to keep this project as simple as possible, so you can start with just the scaffolding we set up for you, and add additional things later when they become necessary.
+- **Events Calendar**: Stay updated with upcoming events and important dates.
+- **Community Announcements**: Get the latest news and updates about what's happening in the park.
+- **FAQ Section**: Find answers to frequently asked questions about community rules, event participation, and more.
 
-If you are not familiar with the different technologies used in this project, please refer to the respective docs. If you still are in the wind, please join our [Discord](https://t3.gg/discord) and ask for help.
+## Getting Involved
 
-- [Next.js](https://nextjs.org)
-- [NextAuth.js](https://next-auth.js.org)
-- [Prisma](https://prisma.io)
-- [Drizzle](https://orm.drizzle.team)
-- [Tailwind CSS](https://tailwindcss.com)
-- [tRPC](https://trpc.io)
+Interested in being more involved in the community? Here's how you can participate:
+- **Attend Events**: Check our calendar and join us in various activities.
+- **Volunteer**: Help us organize events or run community programs.
+- **Provide Feedback**: Have suggestions or questions? You can check out the FAQ or contact us directly.
 
-## Learn More
+## Contributing
 
-To learn more about the [T3 Stack](https://create.t3.gg/), take a look at the following resources:
+We welcome contributions from residents! If you have a suggestion or want to help with the website development, please see our [contribution guidelines](CONTRIBUTING.md).
 
-- [Documentation](https://create.t3.gg/)
-- [Learn the T3 Stack](https://create.t3.gg/en/faq#what-learning-resources-are-currently-available) — Check out these awesome tutorials
+## License
 
-You can check out the [create-t3-app GitHub repository](https://github.com/t3-oss/create-t3-app) — your feedback and contributions are welcome!
+This project is licensed under the MIT License - see the [LICENSE](LICENSE.md) file for details.
 
-## How do I deploy this?
+## Contact
 
-Follow our deployment guides for [Vercel](https://create.t3.gg/en/deployment/vercel), [Netlify](https://create.t3.gg/en/deployment/netlify) and [Docker](https://create.t3.gg/en/deployment/docker) for more information.
+For more information, questions, or assistance, please email us at [contact@woodwardbluffs.com](mailto:contact@woodwardbluffs.com).
+
+Enjoy your stay at Woodward Bluffs Mobile Home Park!
