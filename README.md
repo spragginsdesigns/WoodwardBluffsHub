@@ -2,6 +2,8 @@
 
 Welcome to the official GitHub repository for the Woodward Bluffs Mobile Home Park Activities Committee. This website is your go-to resource for all events, activities, and community announcements.
 
+![1714449345829](image/README/1714449345829.png)
+
 ## Features
 
 - **Events Calendar**: Stay updated with upcoming events and important dates.
@@ -11,6 +13,7 @@ Welcome to the official GitHub repository for the Woodward Bluffs Mobile Home Pa
 ## Getting Involved
 
 Interested in being more involved in the community? Here's how you can participate:
+
 - **Attend Events**: Check our calendar and join us in various activities.
 - **Volunteer**: Help us organize events or run community programs.
 - **Provide Feedback**: Have suggestions or questions? You can check out the FAQ or contact us directly.

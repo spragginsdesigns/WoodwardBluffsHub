@@ -1,25 +1,36 @@
-// pages/calendar.tsx
-import Head from "next/head";
-import Navbar from "./navbar"; // Ensure the path is correct
 import { useState } from "react";
-import { events as eventsData } from "./eventsData"; // Ensure the path is correct
+import Head from "next/head";
+import Navbar from "./navbar";
+import { events } from "../data/eventsData";
 
-interface EventItem {
+type EventItem = {
   title: string;
   time: string;
-}
-
-interface Events {
-  [key: string]: EventItem[];
-}
-
-const events: Events = eventsData as Events;
+};
 
 const Calendar = () => {
   const [currentDate, setCurrentDate] = useState(new Date());
-  const currentMonth = currentDate.getMonth();
   const currentYear = currentDate.getFullYear();
+  const currentMonth = currentDate.getMonth();
 
+  const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
+  const firstDayOfMonth = new Date(currentYear, currentMonth, 1).getDay();
+  const days = Array.from(
+    { length: daysInMonth },
+    (_, i) => new Date(currentYear, currentMonth, i + 1),
+  );
+
+  const getEventsForDay = (date: Date): EventItem[] => {
+    const formattedDate = date.toISOString().split("T")[0];
+    return events[formattedDate as keyof typeof events] ?? [];
+  };
+
+  const changeMonth = (offset: number) => {
+    const newMonth = currentMonth + offset;
+    setCurrentDate(
+      new Date(currentYear + Math.floor(newMonth / 12), newMonth % 12, 1),
+    );
+  };
   const monthNames = [
     "January",
     "February",
@@ -34,25 +45,6 @@ const Calendar = () => {
     "November",
     "December",
   ];
-
-  const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
-  const firstDayOfMonth = new Date(currentYear, currentMonth, 1).getDay();
-  const days = Array.from(
-    { length: daysInMonth },
-    (_, i) => new Date(currentYear, currentMonth, i + 1),
-  );
-
-  const getEventsForDay = (date: Date): EventItem[] => {
-    const formattedDate = date.toISOString().split("T")[0];
-    return events[formattedDate] ?? [];
-  };
-
-  const changeMonth = (offset: number) => {
-    const newMonth = currentMonth + offset;
-    setCurrentDate(
-      new Date(currentYear + Math.floor(newMonth / 12), newMonth % 12, 1),
-    );
-  };
 
   return (
     <>
@@ -70,6 +62,7 @@ const Calendar = () => {
             >
               Prev
             </button>
+
             <h2 className="text-xl font-bold sm:text-2xl md:text-3xl lg:text-4xl">
               {monthNames[currentMonth]} {currentYear}
             </h2>
