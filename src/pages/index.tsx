@@ -30,9 +30,11 @@ export default function Home() {
             <button className="rounded-full bg-white px-6 py-2 font-semibold text-blue-700 transition hover:bg-gray-100">
               Get Started
             </button>
-            <button className="rounded-full border border-white px-6 py-2 font-semibold transition hover:bg-white/10">
-              Learn More
-            </button>
+            <Link href="/faq">
+              <button className="rounded-full border border-white px-6 py-2 font-semibold transition hover:bg-white/10">
+                Learn More
+              </button>
+            </Link>
           </div>
         </section>
 
